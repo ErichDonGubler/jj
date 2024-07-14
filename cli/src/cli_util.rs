@@ -214,7 +214,7 @@ impl CommandHelper {
     /// A loaded `Workspace::workspace_root()` also returns a canonical path, so
     /// relative paths can be easily computed from these paths.
     pub fn cwd(&self) -> &Path {
-        &self.cwd
+        dunce::simplified(&self.cwd)
     }
 
     pub fn string_args(&self) -> &Vec<String> {
